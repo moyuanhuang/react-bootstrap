@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import mapContextToProps from 'react-context-toolbox/mapContextToProps';
+import mapContextToProps from '@restart/context/mapContextToProps';
 import { elementType } from 'prop-types-extra';
 import BaseDropdown from 'react-overlays/Dropdown';
 

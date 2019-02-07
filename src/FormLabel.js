@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import warning from 'warning';
 
-import mapContextToProps from 'react-context-toolbox/mapContextToProps';
+import mapContextToProps from '@restart/context/mapContextToProps';
 import Col from './Col';
 import FormContext from './FormContext';
 import { createBootstrapComponent } from './ThemeProvider';
