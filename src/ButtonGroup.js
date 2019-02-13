@@ -45,7 +45,7 @@ const defaultProps = {
   as: 'div',
 };
 
-function ButtonGroup(props, ref) {
+const ButtonGroup = React.forwardRef((props, ref) => {
   const {
     bsPrefix,
     size,
@@ -73,12 +73,10 @@ function ButtonGroup(props, ref) {
       )}
     />
   );
-}
+});
 
-const DecoratedButtonGroup = React.forwardRef(ButtonGroup);
+ButtonGroup.displayName = 'ButtonGroup';
+ButtonGroup.propTypes = propTypes;
+ButtonGroup.defaultProps = defaultProps;
 
-DecoratedButtonGroup.displayName = 'ButtonGroup';
-DecoratedButtonGroup.propTypes = propTypes;
-DecoratedButtonGroup.defaultProps = defaultProps;
-
-export default DecoratedButtonGroup;
+export default ButtonGroup;

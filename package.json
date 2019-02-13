@@ -140,7 +140,7 @@
     "react-overlays": "^1.0.0",
     "react-prop-types": "^0.4.0",
     "react-transition-group": "^2.5.1",
-    "uncontrollable": "^6.0.0",
+    "uncontrollable": "^6.1.0",
     "warning": "^4.0.1"
   },
   "release": {
