@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { elementType } from 'prop-types-extra';
 import useEventCallback from '@restart/hooks/useEventCallback';
 
-import { createBootstrapComponent, useBootstrapPrefix } from './ThemeProvider';
+import { useBootstrapPrefix } from './ThemeProvider';
 import NavbarContext from './NavbarContext';
 
 const propTypes = {
