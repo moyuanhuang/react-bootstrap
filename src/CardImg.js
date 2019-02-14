@@ -9,7 +9,7 @@ const propTypes = {
   /**
    * @default 'card-img'
    */
-  bsPrefix: PropTypes.string.isRequired,
+  bsPrefix: PropTypes.string,
 
   /**
    * Defines image position inside

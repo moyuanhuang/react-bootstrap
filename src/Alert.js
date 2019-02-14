@@ -1,11 +1,12 @@
 import classNames from 'classnames';
-import React, { useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { elementType } from 'prop-types-extra';
 import useControllable from 'uncontrollable/hook';
-import divWithClassName from './utils/divWithClassName';
+import useEventCallback from '@restart/hooks/useEventCallback';
 
 import createWithBsPrefix from './utils/createWithBsPrefix';
+import divWithClassName from './utils/divWithClassName';
 import { useBootstrapPrefix } from './ThemeProvider';
 import Fade from './Fade';
 import CloseButton from './CloseButton';
@@ -78,12 +79,9 @@ const Alert = React.forwardRef((uncontrolledProps, ref) => {
   } = useControllable(uncontrolledProps, controllables);
 
   const prefix = useBootstrapPrefix(bsPrefix, 'alert');
-  const handleClose = useCallback(
-    e => {
-      onClose(false, e);
-    },
-    [onClose],
-  );
+  const handleClose = useEventCallback(e => {
+    onClose(false, e);
+  });
 
   const alert = (
     <div

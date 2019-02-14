@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { elementType } from 'prop-types-extra';
 
 import createWithBsPrefix from './utils/createWithBsPrefix';
-import { createBootstrapComponent } from './ThemeProvider';
+import { useBootstrapPrefix } from './ThemeProvider';
 import FormGroup from './FormGroup';
 import FormControl from './FormControl';
 import FormCheck from './FormCheck';
@@ -25,7 +25,7 @@ const propTypes = {
    * @type {ReactRef}
    * @alias ref
    */
-  innerRef: PropTypes.any,
+  _ref: PropTypes.any,
 
   /**
    * Display the series of labels, form controls,
@@ -46,38 +46,35 @@ const defaultProps = {
   as: 'form',
 };
 
-function Form({
-  bsPrefix,
-  inline,
-  className,
-  innerRef,
-  validated,
-  as: Component,
-  ...props
-}) {
-  return (
-    <Component
-      {...props}
-      ref={innerRef}
-      className={classNames(
-        className,
-        validated && 'was-validated',
-        inline && `${bsPrefix}-inline`,
-      )}
-    />
-  );
-}
+const Form = React.forwardRef(
+  (
+    { bsPrefix, inline, className, validated, as: Component, ...props },
+    ref,
+  ) => {
+    bsPrefix = useBootstrapPrefix(bsPrefix, 'form');
+    return (
+      <Component
+        {...props}
+        ref={ref}
+        className={classNames(
+          className,
+          validated && 'was-validated',
+          inline && `${bsPrefix}-inline`,
+        )}
+      />
+    );
+  },
+);
 
+Form.displayName = 'Form';
 Form.propTypes = propTypes;
 Form.defaultProps = defaultProps;
 
-const DecoratedForm = createBootstrapComponent(Form, 'form');
+Form.Row = createWithBsPrefix('form-row');
+Form.Group = FormGroup;
+Form.Control = FormControl;
+Form.Check = FormCheck;
+Form.Label = FormLabel;
+Form.Text = FormText;
 
-DecoratedForm.Row = createWithBsPrefix('form-row');
-DecoratedForm.Group = FormGroup;
-DecoratedForm.Control = FormControl;
-DecoratedForm.Check = FormCheck;
-DecoratedForm.Label = FormLabel;
-DecoratedForm.Text = FormText;
-
-export default DecoratedForm;
+export default Form;

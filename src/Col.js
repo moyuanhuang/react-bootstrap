@@ -102,6 +102,7 @@ const Col = React.forwardRef(
       if (order != null) classes.push(`order${infix}-${order}`);
       if (offset != null) classes.push(`offset${infix}-${offset}`);
     });
+
     if (!spans.length) {
       spans.push(prefix); // plain 'col'
     }

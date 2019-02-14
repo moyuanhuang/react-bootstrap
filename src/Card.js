@@ -18,7 +18,7 @@ const propTypes = {
   /**
    * @default 'card'
    */
-  bsPrefix: PropTypes.string.isRequired,
+  bsPrefix: PropTypes.string,
 
   /**
    * Sets card background

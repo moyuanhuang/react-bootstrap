@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React, { useContext, useCallback } from 'react';
+import React, { useContext } from 'react';
+import useEventCallback from '@restart/hooks/useEventCallback';
 
 import NavContext from './NavContext';
 import SelectableContext, { makeEventKey } from './SelectableContext';
@@ -14,6 +15,8 @@ const propTypes = {
   eventKey: PropTypes.any,
 
   as: PropTypes.any,
+  onClick: PropTypes.func,
+  onSelect: PropTypes.func,
 };
 
 const defaultProps = {
@@ -28,6 +31,7 @@ const AbstractNavItem = React.forwardRef(
       tabIndex,
       eventKey,
       onSelect,
+      onClick,
       as: Component,
       ...props
     },
@@ -56,16 +60,12 @@ const AbstractNavItem = React.forwardRef(
       props['aria-selected'] = isActive;
     }
 
-    const { onClick } = props;
-    const handleOnclick = useCallback(
-      e => {
-        if (onClick) onClick(e);
-        if (navKey == null) return;
-        if (onSelect) onSelect(navKey, e);
-        if (parentOnSelect) parentOnSelect(navKey, e);
-      },
-      [navKey, onClick],
-    );
+    const handleOnclick = useEventCallback(e => {
+      if (onClick) onClick(e);
+      if (navKey == null) return;
+      if (onSelect) onSelect(navKey, e);
+      if (parentOnSelect) parentOnSelect(navKey, e);
+    });
 
     return (
       <Component

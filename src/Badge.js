@@ -6,7 +6,7 @@ import { useBootstrapPrefix } from './ThemeProvider';
 
 const propTypes = {
   /** @default 'badge' */
-  bsPrefix: PropTypes.string.isRequired,
+  bsPrefix: PropTypes.string,
 
   /**
    * The visual style of the badge

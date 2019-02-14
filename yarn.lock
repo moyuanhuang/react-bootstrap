@@ -1010,6 +1010,11 @@
   resolved "https://registry.yarnpkg.com/@restart/context/-/context-2.0.4.tgz#5f6a656e8c8a52334facf3307e7eb9ee774e13d2"
   integrity sha512-pFOSPmNC3tgNwcIFAfuicw/IqdQHdW49MXVhn15HqYzu5Iv0jqfzh5hIyVQvRXSsw4bkUpbai/34yTRVYgs5Yg==
 
+"@restart/hooks@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@restart/hooks/-/hooks-0.1.0.tgz#6429c5af195435dc7e4077499f91cbc5d93a4d97"
+  integrity sha512-C9clqofqIYccpNwpVE3Ag5BQtbtysfbaKVN22Tt8Af5pm8rXyJM2yACfW6+M7S/rTzctdtWTa5OhOrixXaqR6Q==
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
